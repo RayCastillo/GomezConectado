@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval' 'nonce-WUI78otb8OV57rsY9OASDOAS9SA' 'nonce-7EUIL78o7Giiuaisus979usgkah' http://127.0.0.1:*  http://ajax.googleapis.com http://ecn.dev.virtualearth.net https://www.google.com;">-->
+  
+    <title>Gómez Conectado</title>
+    <link rel="stylesheet" href="css/framework7.css">
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/lading.css">
+    <link rel="stylesheet" href="css/tweet.css">
+    <link rel="stylesheet" href="css/parsley.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+      <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/SocialSharing.js"></script>
+        <script type="text/javascript" src="js/gpsDetectionPlugin.js"></script>   
+    <link href='http://fonts.googleapis.com/css?family=Khula:300,400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://www.google.com/jsapi" ></script>
+    <script type="text/javascript" src="js/tweecool.min.js"></script>  
+    <script nonce=7EUIL78o7Giiuaisus979usgkah>
+        this.imagenurl=null;
+        this.tiposerv=null;
+        this.latitud=null;
+        this.longitud=null;
+        this.tipoenvio=null;
+    </script>
+    <script nonce=WUI78otb8OV57rsY9OASDOAS9SA>
+     document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+
+        gpsDetect = cordova.require('cordova/plugin/gpsDetectionPlugin');       
+        gpsDetect.checkGPS(onGPSSuccess, onGPSError);
+    
+        function onGPSSuccess(on) {
+            if (on == false) mainView.loadPage('gps-notify.html');
+        }
+
+        function onGPSError(e) {
+            alert("Error : "+e);
+        }
+        
+        document.addEventListener("offline", onOffline, false);
+
+        function onOffline() {
+            // Handle the offline event
+            mainView.loadPage('no-internet.html');
+        }
+    }
+</script>
+   <script type="text/javascript" src="js/nogps.js"></script>
+    
+  </head>
+  <body>
+   
+
+    
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+      <div class="content-block">
+        <p></p>
+      </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-left panel-reveal">
+      <div class="content-block">
+      <ul id="menu">
+          <a class="close-panel" data-animate-pages="false" href="index.html"><li><img class="home-icon" src="img/inicio-icon.png"> Inicio</li></a>
+          <a class="close-panel" data-animate-pages="false" href="reportar.html"><li><img src="img/report-icon2.png"> Hacer Reporte</li></a>
+          <a class="close-panel" data-animate-pages="false" href="noticias.html"><li> <img src="img/news-icon.png">Noticias</li></a>
+          <a class="close-panel" data-animate-pages="false" href="gconganas.html"><li><img src="img/gcganas-icon.png"> Gómez Con Ganas</li></a>
+          <a class="close-panel" data-animate-pages="false" href="consulta.html"><li><img src="img/consultar-icon.png"> Consultar Reporte</li></a>
+          <a class="close-panel" data-animate-pages="false" href="mis-reportes.html"><li><img src="img/myreports.png"> Mis Reportes</li></a>
+          <a class="close-panel" data-animate-pages="false" href="contacto.html"><li><img src="img/contacto-icon.png"> Contactanos</li></a>
+      </ul>
+      
+      </div>
+    </div>
+    <!-- Views-->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+     
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+         <div class="navbar verde">
+            <div class="navbar-inner">
+                 <div class="left open-panel">
+                    <a href="#">
+                        <i class="icon icon-bars-gray"></i>
+                    </a>
+                </div>
+                <div class="center"><img class="logo" src="img/logo.png"></div>
+               
+            </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+       <div class="pages navbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index" class="page no-swipeback">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+                 <div class="cover-top">
+                     <img src="img/gpganas.jpg" alt="cover">
+                 </div>   
+                <a href="reportar.html"> <div class="redRounded-btn"><h3>Haz un Reporte</h3></div></a>
+                 <div  class="tarjeta">
+                      
+                     <h3>Tweets Cuenta Oficial @gp_dgo</h3>
+                    <div id="tweets">
+                       
+                    </div>
+                     
+                 </div>  
+            </div>
+           
+          </div>
+        </div>
+      
+    </div>
+      </div>
+       <div class="popover popover-links">
+                    <div class="popover-angle"></div>
+                    <div class="popover-inner">
+                      <div class="list-block">
+                        <ul>
+                          <li><a href="#" class="list-button item-link popover-takepic close-popover">Tomar foto</a></li>
+                          <li><a href="#" class="list-button item-link popover-selectbiblioteca close-popover">Seleccionar de Biblioteca</a></li>
+                          <li><a href="#" class="list-button item-link close-popover">Sin foto</a></li>
+                       
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  
+                
+      
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/feed.js"></script>
+    <script type="text/javascript" src="js/twitterfeed.js"></script>
+     <script src="js/fb.js" type="text/javascript"></script>
+    <script src="js/parse-gc.js" type="text/javascript"></script>   
+    <script type="text/javascript" src="js/my-app.js"></script>    
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script type="text/javascript" src="js/ux.js"></script>
+    <script type="text/javascript" src="js/jquery.transit.min.js"></script>
+   
+         <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4FuxkQLAShhJPJ44AU3yVwK8Qe7Nqf2w&callback=initMap">
+    </script>
+        <script type="text/javascript" src="js/gMap.js"></script>
+    <script type="text/javascript" src="js/tipo-serv.js"></script>
+    <script type="text/javascript" src="js/enviar-reporte.js"></script>
+    <script type="text/javascript" src="js/consultar.js"></script>
+    <script type="text/javascript" src="js/noticia.js"></script>
+    <script type="text/javascript" src="js/contacto.js"></script>
+    
+    <script type="text/javascript" src="js/gconganas.js"></script>
+    <script src="js/es.js"></script>
+    <script src="js/parsley.min.js" type="text/javascript"></script>
+    
+    
+    <script type="text/javascript">
+        window.Parsley.setLocale('es');
+        loadTweets();
+        
+       Parse.initialize("PISmMPWjg1eySvSkl3xE0HRpHug0KOShEyAxzesK", "9JLAUANn5NDsN9zliwFnWmyZmFpGH6GOMcZzHYao");
+      Parse.User.logOut();
+      
+    </script>
+  
+  </body>
+</html>

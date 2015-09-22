@@ -1,0 +1,46 @@
+<div data-page="login" class="page no-swipeback">
+  <div class="page-content login-screen-content">
+    <h3 class="login-screen-title">Iniciar Sesión</h3>
+          <form>
+            <div class="list-block">
+              <ul>
+                <li class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">Usuario</div>
+                    <div class="item-input">
+                      <input type="text" id="username" name="username" placeholder="Tu nombre de usuario">
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">Contraseña</div>
+                    <div class="item-input">
+                      <input type="password" id="pass" name="password" placeholder="Contraseña">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="list-block">
+              <ul>
+                <li><a href="#" id="login" class="item-link list-button">Iniciar Sesión</a></li>
+                
+              </ul>
+              <div class="list-block-label">
+              <p>¿No te has registrado aún?<a href="#"> Aquí puedes hacerlo</a></p>
+               <div class="row">
+                  <div id="status"></div>
+                   <div class="col-100">
+                       <!--<a href="#" id="fbLoginbtn">Iniciar Sesión con Facebook</a>-->
+                       <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+                   </div>
+               </div>
+                <p>¿No te has registrado aún?<a href="#"> Aquí puedes hacerlo</a></p>
+                <p><a href="#" id="cerrarses" class="close-login-screen">Cerrar</a></p>
+              </div>
+            </div>
+          </form>
+  </div>
+</div>   

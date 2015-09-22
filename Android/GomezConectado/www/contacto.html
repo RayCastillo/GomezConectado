@@ -1,0 +1,60 @@
+ <div class="navbar verde">
+            <div class="navbar-inner">
+                 <div class="left open-panel">
+                    <a href="#">
+                        <i class="icon icon-bars-white"></i>
+                    </a>
+                </div>
+                <div class="center">Gómez Conectado</div>
+               
+            </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="contacto" class="page no-swipeback">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+                 <div class="cover-preview">
+                    <img src="img/r_ayuntamiento.jpg" alt="cover">
+                    
+                     
+                 </div>
+                  <div id="wrap-contacto">
+                    <div id="ConactoInfoCover">
+                      <ul>
+                              <li>
+                              <h3 class="entrada-title">Presidencia Municipal de Gómez Palacio</h3>
+                               <p class="entrada-resume">Av. Francisco I. Madero No. 400 C.P. 35000</p>
+                              </li>
+                      </ul>
+                   </div>             
+                   <div id="contacto-links">
+                      <div class="contacto-links">
+                            <ul>
+                                <li><a class="external" href="https://www.facebook.com/CdGomezPalacio"><img src="img/facebook2.png" alt=""></a></li>
+                                <li><a class="external" href="https://twitter.com/gp_dgo"><img src="img/twitter.png" alt=""></a></li>
+                                <li><a class="external" href="tel:1751000"><img src="img/phone72.png" alt=""></a></li>
+                            </ul>
+                      </div>
+                    </div>
+                 <div class="tarjeta no-top">
+                    <h3>Contactanos</h3>
+                    <span>Ingresa tus dátos y envíanos tus comentarios</span>
+                     <div class="row">                       
+                        <div class="col-100">                        
+                         <form id="enviarReporteForm">
+                              <div class="row"><input name="nombreCompleto" id="nombreCompleto" placeholder="Nombre Completo" class="col-100" type="text" required></div>
+                              <div class="row"><input name="correo" id="correo" placeholder="Correo Electrónico" type="email" class="col-100" required></div>
+                              <div class="row"><input type="text"  class="form-control" value="2" name="tipo" style="display:none;"></div>
+                              <div class="row"><textarea  data-validate="required" name="comentario" id="comentario" placeholder="Comentario" class="col-100" type="text" required></textarea></div>
+                              <button id="submit" name="submit" class="action-red-btn col-100">Enviar</button>
+                         </form>
+                         
+                        </div>
+                     </div>
+                 </div>  
+                 </div>
+            </div>
+          </div>
+        </div>

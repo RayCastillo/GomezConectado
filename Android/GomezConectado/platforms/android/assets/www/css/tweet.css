@@ -1,0 +1,32 @@
+
+#tweets ul {
+margin: 0;
+padding: 0;
+   
+}
+#tweets li {
+list-style: none;
+clear: both;
+    font-family: sans-serif;
+    
+}
+#tweets li img, .twitter-widget li .tweets_txt {
+float: left;
+margin-bottom: 10px;
+}
+#tweets li img {    display: none;
+}
+#tweets li .tweets_txt {
+width: 100%;
+margin-left: 10px;
+}
+#tweets li .tweets_txt span {
+font-style: italic;
+color: #666;
+display: block;
+    float: right;
+    margin-right: 10px;
+}
+
+
+

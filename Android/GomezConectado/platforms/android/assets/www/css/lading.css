@@ -1,0 +1,106 @@
+@import "compass/css3";
+
+
+
+/* Animation */
+@-moz-keyframes loadingAnimation { 
+  from { opacity: 0.8; }
+  to { opacity: 0.2; }
+}
+
+@-webkit-keyframes loadingAnimation { 
+  from { opacity: 0.8; }
+  to { opacity: 0.2; }
+}
+
+@-o-keyframes loadingAnimation { 
+  from { opacity: 0.8; }
+  to { opacity: 0.2; }
+}
+
+@-ms-keyframes loadingAnimation { 
+  from { opacity: 0.8; }
+  to { opacity: 0.2; }
+}
+
+@-khtml-keyframes loadingAnimation { 
+  from { opacity: 0.8; }
+  to { opacity: 0.2; }
+}
+
+@keyframes loadingAnimation { 
+  from { opacity: 0.8; }
+  to { opacity: 0.2; }
+}
+
+/* The container */
+#loading { 
+
+  height: 30px; width: 100px; 
+
+  text-align: center; 
+  
+  position: absolute; 
+  left: 50%; top: 50%; 
+  margin-left: -50px; margin-top:-15px; 
+  
+  display: block;
+
+}
+
+.ui-loading { 
+  width: 100%; height: 50px; 
+  text-align: center; margin-top: 15px; 
+}
+.ui-loading ul, .ui-loading li { 
+  list-style-type: none; list-type: none; 
+  margin: 0px; padding: 0px; 
+}
+.ui-loading ul { display: inline-block; }
+.ui-loading li { 
+  float: left; 
+  display: inline; 
+  height: 20px; width: 20px; 
+  border-radius: 50%; 
+  background-color: #FFF; 
+  margin-right: 5px; 
+  opacity: 0.2; 
+  
+  -webkit-animation: loadingAnimation 1s infinite; 
+  -moz-animation: loadingAnimation 1s infinite; 
+  animation: loadingAnimation 1s infinite;
+
+}
+
+.ui-loading li:nth-child(1) { 
+  -webkit-animation-delay: 0s; 
+  -moz-animation-delay: 0s; 
+  animation-delay: 0s; 
+}
+.ui-loading li:nth-child(2) { 
+  -webkit-animation-delay: 250ms; 
+  -moz-animation-delay: 250ms; 
+  animation-delay: 250ms;
+}
+.ui-loading li:nth-child(3) { 
+  -webkit-animation-delay: 500ms; 
+  -moz-animation-delay: 500ms; 
+  animation-delay: 500ms;
+}
+#loadingContainer {
+    height: 100%;
+    background: #d0d0d0;
+    text-align: center;
+}
+
+h2{
+    position: relative;
+    top:40%;   
+    font-family: 'Khula',sans-serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+

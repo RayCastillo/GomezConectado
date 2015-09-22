@@ -1,0 +1,48 @@
+   <div class="navbar verde">
+            <div class="navbar-inner">
+                 <div class="left open-panel">
+                    <a href="#">
+                        <i class="icon icon-bars-white"></i>
+                    </a>
+                </div>
+                <div class="center">Noticia | {{titulo}}</div>
+               
+            </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+       <div class="pages navbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="noticia" class="page no-swipeback">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+                 <div class="cover-preview crop-preview">{{imagen}}</div>
+            <div id="date-share">
+                <div id="Day">
+                    <div id="dayCircle"><span id="diaMes">{{fecha.dia}}</span><span id="mes">{{fecha.mes}}</span></div>
+                </div>
+                <div class="share-noticia">
+                        <span class="lblShare">Compartir Noticia:</span>
+                        <ul>
+                           <a href="#" id="shareMail"><li><img src="img/email131.png" alt="icon-email"></li></a>
+                           <a href="#" id="shareFB"><li><img src="img/facebook2.png" alt="icon-fb"></li></a>
+                           <a href="#" id="shareTwitter"><li><img src="img/twitter.png" alt="icon-twitter"></li></a>
+                           <a href="#" id="shareWhats"><li><img src="img/whats.png" alt="icon-whats"></li></a>
+                        </ul>
+                    </div>
+            </div>
+            <div class="gcg-blog-entries noticia-entry">
+                    <header>{{titulo}}</header>
+                    <div class="entry">{{contenido}}</div>
+                   <footer class="share-page">
+                        <span class="lblShare"><img class="share-icon" src="img/share-icon02.png">Compartir:</span>
+                        <ul>
+                           <a href="#" id="shareMail"><li><img src="img/email131.png" alt="icon-email"></li></a>
+                           <a href="#" id="shareFB"><li><img src="img/facebook2.png" alt="icon-fb"></li></a>
+                           <a href="#" id="shareTwitter"><li><img src="img/twitter.png" alt="icon-twitter"></li></a>
+                           <a href="#" id="shareWhats"><li><img src="img/whats.png" alt="icon-whats"></li></a>
+                        </ul>
+                    </footer>
+                </div>
+            </div>
+          </div>
+        </div>
