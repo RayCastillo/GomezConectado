@@ -1,0 +1,44 @@
+<div class="navbar verde">
+            <div class="navbar-inner">
+                 <div class="left open-panel">
+                    <a href="#">
+                        <i class="icon icon-bars-white"></i>
+                    </a>
+                </div>
+                <div class="center">Gómez Conectado</div>
+               
+            </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="consulta" class="page no-swipeback">
+            <!-- Scrollable page content-->
+            <div class="page-content">  
+              
+                 <div class="white-block">
+                   <div class="wrapper-form">
+                    <h3>Consulta tu Reporte</h3>
+                    <span>Puedes ingresar el número de Folio ó también puedes consultarlos con tu correo.</span>
+                     <div class="row">                       
+                        <div class="col-100">                        
+                         <form id="formConsultaFolio">
+                                <div class="row"><input name="folio" id="folio" placeholder="Folio" class="col-100" data-parsley-type="integer" type="number" data-parsley-group="folio" required></div>
+                                <div class="row"><input name="correo" id="mail" placeholder="Correo Electrónico" class="col-100" type="email" data-parsley-group="mail" required></div>
+                                <button id="consultarReporte" class="action-red-btn col-100">Consultar</button>
+                         </form>                        
+                         
+                        </div>
+                     </div>
+                 </div>  
+                
+                 </div>
+                  <div id="ListadoReportes" class="row">
+                     <ul id="ulFolios">
+                        
+                     </ul>
+                 </div>
+            </div>
+            
+          </div>
+        </div>
