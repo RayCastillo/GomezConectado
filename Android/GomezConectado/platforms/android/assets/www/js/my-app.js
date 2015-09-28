@@ -27,6 +27,7 @@ $$(document).on('pageInit', function (e) {
     var page = e.detail.page;
    
     if (page.name === 'index') {
+       // myApp.swiper('swiper-container',{speed:400, spaceBetween:100});
        loadTweets();
     }
     
@@ -43,7 +44,20 @@ $$(document).on('pageInit', function (e) {
       
     }
      if (page.name === 'location') {
-         initMap();
+           gpsDetect = cordova.require('cordova/plugin/gpsDetectionPlugin');       
+        gpsDetect.checkGPS(onGPSSuccess, onGPSError);
+    
+        function onGPSSuccess(on) {
+            if (on == false) mainView.loadPage('gps-notify.html');
+            else{
+                initMap();
+            }
+        }
+
+        function onGPSError(e) {
+            alert("Error : "+e);
+        }
+        
     }
    
     if (page.name === 'enviar') {
@@ -53,7 +67,7 @@ $$(document).on('pageInit', function (e) {
         mainView.loadPage('index.html');
     }
     if (page.name === 'gps-notify') {
-        loadGPS();      
+        loadGPS();        
     }
       if (page.name === 'mis-reportes') {
           getMisReportes();      

@@ -35,16 +35,7 @@
 
     function onDeviceReady() {
 
-        gpsDetect = cordova.require('cordova/plugin/gpsDetectionPlugin');       
-        gpsDetect.checkGPS(onGPSSuccess, onGPSError);
-    
-        function onGPSSuccess(on) {
-            if (on == false) mainView.loadPage('gps-notify.html');
-        }
-
-        function onGPSError(e) {
-            alert("Error : "+e);
-        }
+      
         
         document.addEventListener("offline", onOffline, false);
 
@@ -80,7 +71,7 @@
           <a class="close-panel" data-animate-pages="false" href="gconganas.html"><li><img src="img/gcganas-icon.png"> Gómez Con Ganas</li></a>
           <a class="close-panel" data-animate-pages="false" href="consulta.html"><li><img src="img/consultar-icon.png"> Consultar Reporte</li></a>
           <a class="close-panel" data-animate-pages="false" href="mis-reportes.html"><li><img src="img/myreports.png"> Mis Reportes</li></a>
-          <a class="close-panel" data-animate-pages="false" href="contacto.html"><li><img src="img/contacto-icon.png"> Contactanos</li></a>
+          <a class="close-panel" data-animate-pages="false" href="contacto.html"><li><img src="img/contacto-icon.png"> Contáctanos</li></a>
       </ul>
       
       </div>
@@ -109,7 +100,8 @@
             <!-- Scrollable page content-->
             <div class="page-content">
                  <div class="cover-top">
-                     <img src="img/gpganas.jpg" alt="cover">
+                  
+                    <img src="img/gpganas.jpg" alt="cover">
                  </div>   
                 <a href="reportar.html"> <div class="redRounded-btn"><h3>Haz un Reporte</h3></div></a>
                  <div  class="tarjeta">
