@@ -5,8 +5,8 @@ var myApp = new Framework7({
     cache: false,
     uniqueHistory: true,
     imagesLazyLoadThreshold:50,
-                           imagesLazyLoadSequential:false,
-                           imagesLazyLoadPlaceholder:"img/lazyload.png"
+    imagesLazyLoadSequential:false,
+    imagesLazyLoadPlaceholder:"img/lazyload.png"
 });
 
 // Export selectors engine
