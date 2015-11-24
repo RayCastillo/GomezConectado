@@ -165,7 +165,7 @@ function prepararConsulta(){
                     var comentarioRAW= salida[s];
                    
                     var position=0;
-                    //var resto= ' '+comentarioRAW;
+            
                     var resto= ' '+comentarioRAW;
 
 
