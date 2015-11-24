@@ -27,7 +27,7 @@ $('.popover-takepic').on('click',function(){
 });
 
 $('.popover-selectbiblioteca').on('click', function(){
-    navigator.camera.getPicture(onSuccess, onFail, {quality:20, destinationType: Camera.DestinationType.FILE_URI, sourceType  : navigator.camera.PictureSourceType.SAVEDPHOTOALBUM});
+    navigator.camera.getPicture(onSuccess, onFail, {quality:20, destinationType: Camera.DestinationType.FILE_URI, sourceType  : navigator.camera.PictureSourceType.SAVEDPHOTOALBUM, targetWidth: 400, targetHeight: 400});
     function onSuccess(imageData) {
         imagenurl = imageData;
         $('.cover-preview img').attr('src',imagenurl);

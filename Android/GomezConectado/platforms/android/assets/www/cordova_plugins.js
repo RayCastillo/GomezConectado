@@ -77,6 +77,13 @@ module.exports = [
         "runs": true
     },
     {
+        "file": "plugins/com.cmackay.plugins.googleanalytics/www/analytics.js",
+        "id": "com.cmackay.plugins.googleanalytics.GoogleAnalytics",
+        "clobbers": [
+            "navigator.analytics"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "id": "cordova-plugin-file.DirectoryEntry",
         "clobbers": [
@@ -233,6 +240,7 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "2.1.0",
     "cordova-plugin-statusbar": "1.0.1",
     "cordova-plugin-whitelist": "1.0.0",
+    "com.cmackay.plugins.googleanalytics": "0.1.18",
     "cordova-plugin-file": "2.1.0"
 }
 // BOTTOM OF METADATA
