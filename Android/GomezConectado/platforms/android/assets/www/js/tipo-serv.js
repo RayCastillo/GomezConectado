@@ -10,8 +10,8 @@ function loadtipoServ(){
 }
 
 $('.popover-takepic').on('click',function(){
-    navigator.camera.getPicture(onSuccess, onFail, { quality : 100,
-        destinationType : Camera.DestinationType.FILE_URL,
+    navigator.camera.getPicture(onSuccess, onFail, { quality : 25,
+        destinationType : Camera.DestinationType.FILE_URI,
         sourceType : Camera.PictureSourceType.CAMERA,
         allowEdit : true,
         encodingType: Camera.EncodingType.JPEG,
@@ -27,7 +27,11 @@ $('.popover-takepic').on('click',function(){
 });
 
 $('.popover-selectbiblioteca').on('click', function(){
-    navigator.camera.getPicture(onSuccess, onFail, {quality:20, destinationType: Camera.DestinationType.FILE_URI, sourceType  : navigator.camera.PictureSourceType.SAVEDPHOTOALBUM, targetWidth: 400, targetHeight: 400});
+    navigator.camera.getPicture(onSuccess, onFail, {quality:20,
+        destinationType: Camera.DestinationType.FILE_URI,
+        sourceType  : navigator.camera.PictureSourceType.SAVEDPHOTOALBUM,
+        targetWidth: 400,
+        targetHeight: 400});
     function onSuccess(imageData) {
         imagenurl = imageData;
         $('.cover-preview img').attr('src',imagenurl);

@@ -1,66 +1,82 @@
 /*Envía reportes guardados localmente*/
 function loadReportesPend() {
-    //alert(window.localStorage.getItem('ReportesPendientes'));
     if(window.localStorage.getItem('ReportesPendientes') != null && window.localStorage.getItem('ReportesPendientes')>0) {
-        if(navigator.network.connection.type == Connection.NONE){
-        } else {
-            myApp.confirm('¿Deseas enviar tus reportes pendientes?', function(){
-                var db = window.openDatabase("gomez_conectado", "1.0", "gomez_conectado", 10000);
-                db.transaction(consulta, function(tx, err) {alert('error en consulta db '+err);});
+        $.ajax({
+            url:"http://www.google.fr/blank.html",
+             timeout:1000,
+             type: "GET",
+             cache: false,
+             success: function() {
+                myApp.confirm('¿Deseas enviar tus reportes pendientes?', function(){
+                    var db = window.openDatabase("gomez_conectado", "1.0", "gomez_conectado", 10000);
+                    db.transaction(consulta, function(tx, err) {/*alert('error en consulta db '+err);*/});
 
-                function consulta(tx) {
-                    tx.executeSql('SELECT * FROM reportes_pendientes;', [], success, function(tx, err) {alert('error en consulta select '+err);});
-                }
-
-                function success(tx, results) {
-                    if(navigator.network.connection.type == Connection.NONE){
-                    } else {
-                        window.localStorage.setItem('cadenaFolios', '');
-
-                        asyncLoop(results.rows.length, function(loop) {
-                            var idP = results.rows.item(loop.iteration()).id;
-                            var nombreP = results.rows.item(loop.iteration()).nombre;
-                            var apaternoP = results.rows.item(loop.iteration()).apaterno;
-                            var amaternoP = results.rows.item(loop.iteration()).amaterno;
-                            var mailP = results.rows.item(loop.iteration()).mail;
-                            var descripcionP = results.rows.item(loop.iteration()).descripcion;
-                            var tipoServP = results.rows.item(loop.iteration()).tipoServ;
-                            var latitudP = results.rows.item(loop.iteration()).latitud;
-                            var longitudP = results.rows.item(loop.iteration()).longitud;
-                            var imagenUrlP = results.rows.item(loop.iteration()).imagenUrl;
-                            if(imagenUrlP) {
-                                enviaReporteFoto(idP, nombreP, apaternoP, amaternoP, mailP, descripcionP, tipoServP, latitudP, longitudP, imagenUrlP, function(result) {
-                                    loop.next();
-                                })
-                            } else {
-                                enviaReporte(idP, nombreP, apaternoP, amaternoP, mailP, descripcionP, tipoServP, latitudP, longitudP, function(result) {
-                                    loop.next();
-                                })
-                            }
-
-                            }, function(){
-                                console.log('Cadena '+window.localStorage.getItem('cadenaFolios'));
-
-                                if(window.localStorage.getItem('cadenaFolios').length > 8) {
-                                    myApp.alert('Tus folios son los siguientes: '+window.localStorage.getItem('cadenaFolios'));
-                                } else {
-                                    myApp.alert('Tu folio es el siguiente: '+window.localStorage.getItem('cadenaFolios'));
-                                }
-                                window.localStorage.setItem('cadenaFolios', '');
-
-                                window.localStorage.setItem('ReportesPendientes', '0');
-                                var db = window.openDatabase("gomez_conectado", "1.0", "gomez_conectado", 10000);
-                                db.transaction(eliminaTabla, function(tx, err) {alert('error borrando tabla'+err);});
-                                function eliminaTabla(tx) {
-                                    tx.executeSql('DROP TABLE reportes_pendientes;');
-                                }
-                            }
-                        );
+                    function consulta(tx) {
+                        tx.executeSql('SELECT * FROM reportes_pendientes;', [], success, function(tx, err) {/*alert('error en consulta select '+err);*/});
                     }
-                }
-            }, function(){
-            });
-        }
+
+                    function success(tx, results) {
+                        if(navigator.network.connection.type == Connection.NONE){
+                        } else {
+                            window.localStorage.setItem('cadenaFolios', '');
+
+                            asyncLoop(results.rows.length, function(loop) {
+                                var idP = results.rows.item(loop.iteration()).id;
+                                var nombreP = results.rows.item(loop.iteration()).nombre;
+                                var apaternoP = results.rows.item(loop.iteration()).apaterno;
+                                var amaternoP = results.rows.item(loop.iteration()).amaterno;
+                                var mailP = results.rows.item(loop.iteration()).mail;
+                                var descripcionP = results.rows.item(loop.iteration()).descripcion;
+                                var tipoServP = results.rows.item(loop.iteration()).tipoServ;
+
+                                if(results.rows.item(loop.iteration()).latitud == null || results.rows.item(loop.iteration()).latitud == "") {
+                                    var latitudP = 0;
+                                } else {
+                                    var latitudP = results.rows.item(loop.iteration()).latitud;
+                                }
+                                if(results.rows.item(loop.iteration()).longitud == null || results.rows.item(loop.iteration()).longitud == "") {
+                                    var longitudP = 0;
+                                } else {
+                                    var longitudP = results.rows.item(loop.iteration()).longitud;
+                                }
+
+                                var imagenUrlP = results.rows.item(loop.iteration()).imagenUrl;
+                                if(imagenUrlP) {
+                                    enviaReporteFoto(idP, nombreP, apaternoP, amaternoP, mailP, descripcionP, tipoServP, latitudP, longitudP, imagenUrlP, function(result) {
+                                        loop.next();
+                                    })
+                                } else {
+                                    enviaReporte(idP, nombreP, apaternoP, amaternoP, mailP, descripcionP, tipoServP, latitudP, longitudP, function(result) {
+                                        loop.next();
+                                    })
+                                }
+
+                                }, function(){
+                                    console.log('Cadena '+window.localStorage.getItem('cadenaFolios'));
+
+                                    if(window.localStorage.getItem('cadenaFolios').length > 8) {
+                                        myApp.alert('Tus folios son los siguientes: '+window.localStorage.getItem('cadenaFolios'));
+                                    } else {
+                                        myApp.alert('Tu folio es el siguiente: '+window.localStorage.getItem('cadenaFolios'));
+                                    }
+                                    window.localStorage.setItem('cadenaFolios', '');
+
+                                    window.localStorage.setItem('ReportesPendientes', '0');
+                                    var db = window.openDatabase("gomez_conectado", "1.0", "gomez_conectado", 10000);
+                                    db.transaction(eliminaTabla, function(tx, err) {/*alert('error borrando tabla'+err);*/});
+                                    function eliminaTabla(tx) {
+                                        tx.executeSql('DROP TABLE reportes_pendientes;');
+                                    }
+                                }
+                            );
+                        }
+                    }
+                }, function(){
+                });
+             },
+             error: function() {
+             }
+        });
     }
 }
 
@@ -120,7 +136,7 @@ function enviaReporte(idP, nombreP, apaternoP, amaternoP, mailP, descripcionP, t
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
-            alert("Ocurrió un problema: Codigo = " + textStatus);
+            //alert("Ocurrió un problema: Codigo = " + textStatus);
             callback();
         }
     });
@@ -149,7 +165,7 @@ function enviaReporteFoto(idP, nombreP, apaternoP, amaternoP, mailP, descripcion
 
 
     options.params = params;
-    options.chunkedMode = false;
+    //options.chunkedMode = false;
     if (imagenUrlP.substring(0,21)=="content://com.android") {
         photo_split=imagenUrlP.split("%3A");
         imagenUrlP="content://media/external/images/media/"+photo_split[1];
@@ -177,7 +193,7 @@ function enviaReporteFoto(idP, nombreP, apaternoP, amaternoP, mailP, descripcion
             callback();
         },
         function(error){
-            alert("Ocurrió un problema: Código = " + error.code);
+            //alert("Ocurrió un problema: Código = " + error.code);
             console.log("upload error source " + error.source);
             console.log("upload error target " + error.target);
             callback();

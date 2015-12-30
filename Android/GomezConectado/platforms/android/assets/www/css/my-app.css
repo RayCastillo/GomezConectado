@@ -376,13 +376,15 @@ numero-servicio{
     display: none;
 }
 .btn-next {
-    margin:0px 10px 0 10px;
+    margin:0px auto 0 auto;
     position: absolute;
     bottom: 15px;
     z-index: 10;
     font-family: 'Khula',sans-serif;
     font-weight: 700 !important;
-    width: 100%;
+
+    left:0;
+    right:0;
 }
 .btn-next a{
     text-transform: uppercase;
@@ -399,7 +401,7 @@ numero-servicio{
 }
 .btn-next a:nth-child(2){  
     background: #31ba6b;
-    width: 50% !important;
+    /*width: 50% !important;*/
 }
 .btnGreen{
     background: #31ba6b;
@@ -430,7 +432,7 @@ numero-servicio{
 }
 .noticia-coverimg img{
     width: 160% !important;
-    margin-left: -25%;
+    margin-left: -45%;
 
 }
 
@@ -713,9 +715,9 @@ background: #e4151d;
     overflow: hidden;
     height: 180px;
 }
-.noticia-coverimg img{
-  width: 160% !important;
-    margin-left: -20%;
+.noticia-coverimg img {
+    width: 160% !important;
+    margin-left: -33%;
     margin-top: -10%;
 }
 
@@ -1316,4 +1318,76 @@ font-family: 'Khula',sans-serif;
 }
 #noticias-wrapper {
     z-index:2;
+}
+
+.teg-logo {
+    background: #fff;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    top: 45px;
+    z-index: 10;
+}
+.teg-logo img{
+    width: 120px;
+}
+.btnRegresarNoticia {
+	color: #444444 !important; 
+	font-family: 'Open Sans', sans-serif; 
+	font-weight: 600; 
+	text-transform: uppercase; 
+	font-size:0.9em;
+}
+#gcg-contenido img {
+	width: 100% !important;
+	height: auto !important;
+}
+#gcg-contenido table {
+	width: 100% !important;
+	border: 1px #999999 solid;
+}
+#gcg-contenido td {
+	padding: 2px;
+	border-right:1px #999999 solid;
+	border-bottom:1px #999999 solid;
+	text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+#gcg-contenido h2 {
+	color: #222222;
+	font-weight: bold;
+}
+#gcg-contenido .redtext {
+    color: #de0431 !important;
+	text-align: center;
+}
+#gcg-contenido .bebas {
+    font-family: 'Bebas Neue',sans-serif !important;
+}
+#gcg-contenido .wrap-box {
+	width: 85% !important;
+    margin: 5px;
+    height: 120px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	left: 5% !important;
+	right: 0 !important;
+	text-align: center;
+	position: relative;
+}
+#gcg-contenido .white-box {
+	width: 100%;
+    background: #DE0431;
+    padding: 40px 10px 50px 10px;
+    font-size: 5em !important;
+    color: #FFFFFF;
+}
+#gcg-contenido .wrap-box span {
+    display: block !important;
+    font-size: 11px;
+    color: #ECECEC !important;
+    font-family: 'Arial';
+    margin-top: -48px;
+    margin-left: 10px;
 }

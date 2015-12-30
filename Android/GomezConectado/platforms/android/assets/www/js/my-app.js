@@ -50,19 +50,6 @@ $$(document).on('pageInit', function (e) {
     if (page.name === 'tipo-serv') {
        loadtipoServ();
     }
-    if (page.name === 'location') {
-        gpsDetect = cordova.require('cordova/plugin/gpsDetectionPlugin');       
-        gpsDetect.checkGPS(onGPSSuccess, onGPSError);
-    
-        function onGPSSuccess(on) {
-            if (on == false) mainView.loadPage('gps-notify.html');
-            else { initMap(); }
-        }
-
-        function onGPSError(e) {
-            alert("Error : "+e);
-        }
-    }
     if (page.name === 'enviar') {
         //checkLoggedUser();
         alistarEnvio();
@@ -147,15 +134,46 @@ $$(document).on('pageInit', function (e) {
         linkHome = true;
     }
 
-    if (page.name === 'trabaja') {
+    /*if (page.name === 'trabaja') {
         //loadFeedsTrabaja();
     }
+	if (page.name === 'programas') {
+		cicloGomezConGanas(5);
+	}
+	if (page.name === 'obras') {
+		cicloGomezConGanas(4);
+	}*/
 });
 
 $$(document).on('pageAfterAnimation', function (e) {
     var page = e.detail.page;
     if (page.name === 'success') {
     	animarFolio();
+    }
+    if (page.name === 'location') {
+        gpsDetect = cordova.require('cordova/plugin/gpsDetectionPlugin');
+        gpsDetect.checkGPS(onGPSSuccess, onGPSError);
+        function onGPSSuccess(on) {
+            if (on == false) { mainView.loadPage('gps-notify.html'); }
+            else {
+                $.ajax({
+                     url:"http://www.google.fr/blank.html",
+                      timeout:500,
+                      type: "GET",
+                      cache: false,
+                      success: function() { initMap(); },
+                      error: function() {
+                          myApp.alert("No cuentas con conexión a Internet para cargar el mapa de localización. Inténtalo más tarde.", function(){
+                              mainView.loadPage('index.html');
+                          });
+                          return;
+                      }
+                });
+            }
+        }
+        function onGPSError(e) {
+            alert("Error : "+e);
+        }
     }
 });
 
@@ -167,13 +185,29 @@ $$(document).on('pageBeforeInit', function (e) {
     }
 
     //Verifica conexión a Internet durante la navegación
-    if(navigator.network.connection.type == Connection.NONE && auxConexion == 1){
+    //alert(navigator.network.connection.type);
+    /*if(navigator.network.connection.type == Connection.NONE && auxConexion == 1){
         auxConexion = 0;
         mainView.loadPage('no-internet.html');
         return;
     } else {
         auxConexion = 1;
-    }
+    }*/
+
+    $.ajax({
+        url:"http://www.google.fr/blank.html",
+         timeout:1000,
+         type: "GET",
+         cache: false,
+         success: function() { auxConexion = 1; },
+         error: function() {
+            if(auxConexion == 1) {
+                auxConexion = 0;
+                mainView.loadPage('no-internet.html');
+                return;
+            }
+         }
+    });
 });
 
 function sendAnalytics(pagina) {
@@ -191,4 +225,21 @@ function sendAnalytics(pagina) {
 
     analytics.setLogLevel(LogLevel.INFO);
     analytics.send(params, function(){}, function(){});
+}
+
+//Obtiene dirección a partir de latitud y longitud
+function ReverseGeocode(latitude, longitude, callback){
+    var reverseGeocoder = new google.maps.Geocoder();
+    var currentPosition = new google.maps.LatLng(latitude, longitude);
+    reverseGeocoder.geocode({'latLng': currentPosition}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+                callback(results[0].formatted_address);
+            } else {
+                callback('Dirección no encontrada.');
+            }
+        } else {
+            callback('Dirección no encontrada.');
+        }
+    });
 }

@@ -1,14 +1,3 @@
-<!--<div class="navbar verde">
-	<div class="navbar-inner">
-		<div class="left open-panel">
-			<a href="#">
-				<i class="icon icon-bars-white"></i>
-			</a>
-		</div>
-		<div class="center">Gómez Conectado</div>
-	</div>
-</div>-->
-<!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
 <div class="pages navbar-through toolbar-through">
 	<!-- Page, data-page contains page name-->
     <div data-page="location" class="page no-swipeback">
@@ -19,16 +8,17 @@
                 <div class="col-100">
                     <!--<div class="row">-->
                 		<input id="address" class="" style="width:70%;" type="textbox" placeholder="Ejemplo.- Av. Hidalgo con Mariano Urrea, Gomez Palacio">
-                		<button id="submitDir" class="btnSumbmitDir" style="width:23%;" type="button">Ubicar</button>
+                		<button id="submitDir" class="btnSumbmitDir" style="width:23%; float:right;" type="button">Ubicar</button>
                     <!--</div>-->
 				</div>
             </div>
+			<div id="loaderMap" class="preloader" style="z-index:100; position: absolute; top:260px; margin-left:auto; margin-right:auto; left:0; right:0;"></div>
             <div id="map"></div>
             <div class="btn-next pulse animated row">
-            	<div class="col-100">
-                	<div class="row">
+				<div class="col-100">
+                    <div class="row" style="padding:10px;">
             			<a class="col-40 btnCancelar back" href="reportar.html">Regresar</a>
-            			<a class="col-60 btnNext" href="enviar.html">Siguiente</a>
+            			<a class="col-50 btnNext" id="btnEnviar" href="enviar.html" style="pointer-events:none; float:right !important;">Siguiente</a>
                     </div>
                 </div>
             </div>

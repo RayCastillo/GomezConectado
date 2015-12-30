@@ -1083,7 +1083,7 @@ i.icon.icon-form-email {
 i.icon.icon-form-calendar {
   width: 29px;
   height: 29px;
-  background-image: url("../img/i-form-calendar.png");
+  background-image: url("../img/gcganas-icon.png");
 }
 i.icon.icon-form-tel {
   width: 29px;
@@ -1286,7 +1286,7 @@ i.icon.icon-prev-white {
 }
 .list-block .item-inner {
   padding-right: 15px;
-  border-bottom: 1px solid #c8c7cc;
+  border-bottom: 0px solid #c8c7cc;
   width: 100%;
   padding-top: 8px;
   padding-bottom: 7px;
@@ -1966,7 +1966,7 @@ label.label-checkbox input[type="radio"] {
 label.label-checkbox input[type="checkbox"]:checked + .item-media i.icon-form-checkbox:after,
 label.label-checkbox input[type="radio"]:checked + .item-media i.icon-form-checkbox:after {
   border: none;
-  background: #007aff url("../img/i-form-checkbox-white.png") no-repeat center;
+  background: #888888 url("../img/i-form-checkbox-white.png") no-repeat center;
   -webkit-background-size: auto 9px;
   background-size: auto 9px;
 }

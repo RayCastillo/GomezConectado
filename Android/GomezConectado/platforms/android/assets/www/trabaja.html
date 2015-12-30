@@ -1,72 +1,84 @@
-<!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
-
-
 <div class="pages navbar-through toolbar-through">
     <!-- Page, data-page contains page name-->
     <div data-page="trabaja" class="page">
+        <div class="teg-logo row">
+			<div class="col-100"><img src="img/logoTrabajaenGomez.png"></div>
+		</div>
         <!-- Scrollable page content-->
         <div class="white-block">
             <div class="wrapper-form">
-                <h3>TRABAJOS RECIENTES</h3>
+                <h3 style="padding-top:40px;">TRABAJOS RECIENTES</h3>
                 <div class="row">
                     <div class="col-100">
                         <form id="formConsultaTrabajo">
-                            <div class="row"><input name="clave" id="clave" placeholder="Palabras Clave" class="col-100"></div>
+                            <div class="row" style="display:none;"><input name="clave" id="clave" placeholder="Palabras Clave" class="col-100"></div>
                             <div class="row"><input name="ubicacion" id="ubicacion" placeholder="Ubicaci&oacute;n" class="col-100"></div>
-                            <div class="list-block">
-                                <label class="label-checkbox item-content">
-                                    <input type="checkbox" id="freelance" name="freelance" value="Freelance" checked="checked">
-                                    <div class="item-media">
-                                        <i class="icon icon-form-checkbox"></i>
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title">Freelance</div>
-                                    </div>
-                                </label>
-
-                                <label class="label-checkbox item-content">
-                                    <input type="checkbox" id="medio" name="medio" value="Freelance" checked="checked">
-                                    <div class="item-media">
-                                        <i class="icon icon-form-checkbox"></i>
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title">Medio Tiempo</div>
-                                    </div>
-                                </label>
-
-                                <label class="label-checkbox item-content">
-                                    <input type="checkbox" id="practicante" name="practicante" value="Freelance" checked="checked">
-                                    <div class="item-media">
-                                        <i class="icon icon-form-checkbox"></i>
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title">Practicante</div>
-                                    </div>
-                                </label>
-
-                                <label class="label-checkbox item-content">
-                                    <input type="checkbox" id="temporal" name="temporal" value="Freelance" checked="checked">
-                                    <div class="item-media">
-                                        <i class="icon icon-form-checkbox"></i>
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title">Temporal</div>
-                                    </div>
-                                </label>
-
-                                <label class="label-checkbox item-content">
-                                    <input type="checkbox" id="completo" name="completo" value="Freelance" checked="checked">
-                                    <div class="item-media">
-                                        <i class="icon icon-form-checkbox"></i>
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title">Tiempo Completo</div>
-                                    </div>
-                                </label>
+                            <div class="list-block" style="margin-top:0; padding-top:10px;">
+                               	<div class="row">
+									<div class="col-50">
+										<label class="label-checkbox item-content">
+											<input type="checkbox" id="freelance" name="freelance" value="Freelance" checked="checked">
+											<div class="item-media">
+												<i class="icon icon-form-checkbox"></i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Freelance</div>
+											</div>
+										</label>
+									</div>
+									<div class="col-50">
+										<label class="label-checkbox item-content">
+											<input type="checkbox" id="medio" name="medio" value="Freelance" checked="checked">
+											<div class="item-media">
+												<i class="icon icon-form-checkbox"></i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Medio Tiempo</div>
+											</div>
+										</label>
+									</div>
+								</div>
+                                <div class="row">
+									<div class="col-50">
+										<label class="label-checkbox item-content">
+											<input type="checkbox" id="practicante" name="practicante" value="Freelance" checked="checked">
+											<div class="item-media">
+												<i class="icon icon-form-checkbox"></i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Practicante</div>
+											</div>
+										</label>
+									</div>
+									<div class="col-50">
+										<label class="label-checkbox item-content">
+											<input type="checkbox" id="temporal" name="temporal" value="Freelance" checked="checked">
+											<div class="item-media">
+												<i class="icon icon-form-checkbox"></i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Temporal</div>
+											</div>
+										</label>
+									</div>
+								</div>
+                                <div class="row">
+									<div class="col-100">
+										<label class="label-checkbox item-content">
+											<input type="checkbox" id="completo" name="completo" value="Freelance" checked="checked">
+											<div class="item-media">
+												<i class="icon icon-form-checkbox"></i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Tiempo Completo</div>
+											</div>
+										</label>
+									</div>
+								</div>
                             </div>
                         </form>
                         <div class="row">
-                            <button id="consultarTrabajo" class="col-100 action-red-btn col-100">Buscar</button>
+                            <button id="consultarTrabajo" class="col-100 action-red-btn col-100">Buscar <div id="loaderTrabaja" class="preloader preloader-white" style="margin-left:15px; top:13px; position: absolute; display:none;"></div></button>
                         </div>
                     </div>
                 </div>
@@ -74,9 +86,7 @@
         </div>
         <div class="preloader-holder"></div>
         <div class="page-content">
-            <div id="ListadoTrabajos" class="list-block accordion-list" style="border:1px red solid;">
-                <ul id="ul-feed-trabaja">
-                </ul>
+            <div id="accordion" style="padding-top:78px;">
             </div>
         </div>
     </div>
